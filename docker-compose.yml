@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: "./server"
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
