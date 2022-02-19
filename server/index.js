@@ -5,22 +5,29 @@ const app = express();
 const server = http.createServer(app);
 const {Server} = require("socket.io");
 
-const dht = require('./sensors.js');
+const {exec} = require('./sensors.js');
 
 const io = new Server(server);
 
 app.use(cors());
 
-app.get('/', (req, res) => {
-    console.log('Connection Successful');
+app.get('/', async (req, res) => {
+    res.sendFile('/Users/martje/Desktop/sensorTesting/sensorTesing/client' + '/index.html');
 });
 
-io.on('connection', (socket) => {
+io.on('connection', async (socket) => {
     console.log('socket connection successful')
-    console.log(dht.exec());
+    
+    socket.on('data', async (data) => {
+        data = await exec();
+        let temp = data.temperature;
+        let humidity = data.humidity;
+        let result = ('temperature: ' + temp + ' ' + 'humidity: ' + humidity);
+        console.log(result);
+        io.emit('data', result);
+    });
 });
 
 server.listen(3001, () => {
     console.log('listening on *:3001');
-    console.log(dht.exec());
 });
