@@ -1,13 +1,13 @@
 const sensor = require('node-dht-sensor').promises;
 
-sensor.initialize({
-    test: {
-        fake: {
-          temperature: 21,
-          humidity: 60
-        }
-      }
-});
+// sensor.initialize({
+//     test: {
+//         fake: {
+//           temperature: 21,
+//           humidity: 60
+//         }
+//       }
+// });
  
 async function exec() {
   try {
@@ -21,6 +21,4 @@ async function exec() {
   }
 }
  
-//exec();
-
 module.exports = { exec };
