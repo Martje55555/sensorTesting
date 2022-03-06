@@ -28,7 +28,8 @@ const io = new Server(server);
 app.use(cors());
 
 app.get('/', async (req, res) => {
-    res.sendFile('/Users/martje/Desktop/sensorTesting/sensorTesing/client' + '/index.html');
+    //res.sendFile('/Users/martje/Desktop/sensorTesting/sensorTesing/client' + '/index.html');
+    res.sendFile('/home/parallels/sensorTesting/client' + '/index.html');
 });
 
 io.on('connection', async (socket) => {
