@@ -1,0 +1,17 @@
+{
+    "temperature": {
+      "1": {
+        "date": "",
+        "time": "",
+        "value": ""
+      }
+    },
+    "humidity": {
+        "1": {
+            "date": "",
+            "time": "",
+            "value": ""
+        }
+    }
+  }
+  
